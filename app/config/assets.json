@@ -1,0 +1,7 @@
+{
+    "customize_scripts" : [
+        ["wp-util"],
+        ["jquery", "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js", [], "1.0", true],
+        ["data_generator", "{{ \\data_generator\\LolitaFramework::baseUrl }}/app/assets/js/data_generator.js", ["wp-util", "jquery"], "1.0", true]
+    ]
+}

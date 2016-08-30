@@ -42,12 +42,14 @@ class Assets implements IModule
             add_action('admin_enqueue_scripts', array( $this, 'enqueue' ));
             add_action('login_enqueue_scripts', array( $this, 'enqueue' ));
             add_action('wp_footer', array( $this, 'enqueue' ));
+            add_action('customize_controls_enqueue_scripts', array( $this, 'enqueue' ));
         } else {
             throw new \Exception(__('JSON can be converted to Array', 'lolita'));
         }
         add_action('wp_footer', array(&$this, 'baseData'));
         add_action('admin_footer', array(&$this, 'baseData'));
         add_action('login_footer', array(&$this, 'baseData'));
+        add_action('customize_controls_enqueue_scripts', array(&$this, 'baseData'));
     }
 
     /**
@@ -81,6 +83,7 @@ class Assets implements IModule
             'styles_async',
             'localize',
             'custom',
+            'customize',
         );
         return array_map(array(&$this, 'addPrefix'), $array);
     }
@@ -173,6 +176,24 @@ class Assets implements IModule
     }
 
     /**
+     * Enqueue scripts
+     *
+     * @author Guriev Eugen <gurievcreative@gmail.com>
+     * @param  array $scripts parameters.
+     * @return void
+     */
+    public function customizeScripts($scripts)
+    {
+        $defaults = array('', false, array(), false, false);
+        if (is_array($scripts) && count($scripts)) {
+            foreach ($scripts as $script) {
+                list($handle, $src, $deps, $ver, $in_footer) = $script + $defaults;
+                wp_enqueue_script($handle, Data::interpret($src), $deps, $ver, $in_footer);
+            }
+        }
+    }
+
+    /**
      * Enqueue styles
      *
      * @author Guriev Eugen <gurievcreative@gmail.com>
@@ -180,6 +201,24 @@ class Assets implements IModule
      * @return void
      */
     public function styles($styles)
+    {
+        $defaults = array( '', false, array(), false, 'all' );
+        if (is_array($styles) && count($styles)) {
+            foreach ($styles as $style) {
+                list($handle, $src, $deps, $ver, $media) = $style + $defaults;
+                wp_enqueue_style($handle, Data::interpret($src), $deps, $ver, $media);
+            }
+        }
+    }
+
+    /**
+     * Enqueue styles
+     *
+     * @author Guriev Eugen <gurievcreative@gmail.com>
+     * @param  array $styles parameters.
+     * @return void
+     */
+    public function customizeStyles($styles)
     {
         $defaults = array( '', false, array(), false, 'all' );
         if (is_array($styles) && count($styles)) {

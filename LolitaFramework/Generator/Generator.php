@@ -12,7 +12,7 @@ class Generator
      *
      * @return array
      */
-    public static function post($count, $args = array(), $image_args = array())
+    public static function posts($count, $args = array(), $image_args = array())
     {
         $count  = max(1, (int) $count);
         $return = array();
