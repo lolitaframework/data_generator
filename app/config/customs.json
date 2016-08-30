@@ -1,0 +1,3 @@
+[
+    "{{ \\data_generator\\LolitaFramework::baseDir }}/app/models/"
+]

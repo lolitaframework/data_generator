@@ -1,0 +1,86 @@
+[
+    {
+        "title" : "Sample Data Generator",
+        "description" : "This is sample data generator section",
+        "__SECTIONS__" : [
+            {
+                "title" : "Post",
+                "description" : "Generate posts",
+                "__CONTROLS__" : [
+                    {
+                        "label" : "Count",
+                        "__SETTINGS__" : {
+                            "default" : "10"
+                        }
+                    },
+                    {
+                        "label" : "Post type",
+                        "type" : "select",
+                        "choices" : ["\\data_generator\\ModelMain", "postTypes"],
+                        "__SETTINGS__" : {
+                            "default" : "post"
+                        }
+                    },
+                    {
+                        "label" : "Custom title",
+                        "__SETTINGS__" : {
+                            "default" : "Sample post {n}"
+                        }
+                    },
+                    {
+                        "label" : "Custom content",
+                        "type" : "textarea",
+                        "rows" : "20",
+                        "__SETTINGS__" : {
+                            "default" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, magnam."
+                        }
+                    },
+                    {
+                        "label" : "Custom excerpt",
+                        "type" : "textarea",
+                        "rows" : "20",
+                        "__SETTINGS__" : {
+                            "default" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, magnam."
+                        }
+                    },
+                    {
+                        "label" : "Featured image type",
+                        "type" : "radio",
+                        "choices" : {
+                            "random" : "Random",
+                            "custom" : "Custom"
+                        },
+                        "__SETTINGS__" : {
+                            "default" : "random"
+                        }
+                    },
+                    {
+                        "label" : "Featured image",
+                        "__CLASS__" : "WP_Customize_Image_Control"
+                    },
+                    {
+                        "label" : "Meta data",
+                        "__CLASS__" : "\\data_generator\\LolitaFramework\\Controls\\Repeater\\CustomizeRepeater",
+                        "controls" : [
+                            {
+                                "name"     : "name",
+                                "__TYPE__" : "Text",
+                                "label"    : "Name"
+                            },
+                            {
+                                "name"     : "value",
+                                "__TYPE__" : "Textarea",
+                                "label"    : "Value"
+                            }
+                        ]
+                    },
+                    {
+                        "label":       "Generate",
+                        "description": "Generate posts",
+                        "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
+                    }
+                ]
+            }
+        ]
+    }
+]
