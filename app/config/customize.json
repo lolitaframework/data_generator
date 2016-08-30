@@ -78,6 +78,11 @@
                         "label":       "Generate",
                         "description": "Generate posts",
                         "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
+                    },
+                    {
+                        "label":       "Deleta all",
+                        "description": "Delete all generated posts",
+                        "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
                     }
                 ]
             }

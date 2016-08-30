@@ -47,10 +47,9 @@ class Post
      */
     public function insert($unique = false)
     {
+        $this->properties['post_type'] = Arr::get($this->properties, 'post_type', 'post');
         if ($unique && array_key_exists('post_title', $this->properties)) {
-            $post_title = $this->properties['post_title'];
-            $post_type  = Arr::get($this->properties, 'post_type', 'post');
-            $post = get_page_by_path(sanitize_title($post_title), OBJECT, $post_type);
+            $post = get_page_by_path(sanitize_title($this->properties['post_title']), OBJECT, $post_type);
             if ( null !== $post ) {
                 $this->properties['ID'] = $post->ID;
             }
@@ -59,7 +58,7 @@ class Post
         if (!is_wp_error($this->inserted_id) && 0 < $this->inserted_id) {
             $this->addMeta();
         }
-        return $this;
+        return $this->inserted_id;
     }
 
     /**

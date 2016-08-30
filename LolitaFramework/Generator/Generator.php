@@ -36,7 +36,7 @@ class Generator
 
         for($i = 0; $i < $count; $i++) {
             $new_args = $args;
-            $new_args = str_replace('{n}', $i, $new_args['post_title']);
+            $new_args['post_title'] = str_replace('{n}', $i, $new_args['post_title']);
             $post     = new Post($new_args);
             $return[] = $post->insert();
         }
