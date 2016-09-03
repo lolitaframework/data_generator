@@ -12,7 +12,7 @@ class Generator
      *
      * @return array
      */
-    public static function posts($count, $args = array(), $image_args = array(), $meta_data = array())
+    public static function posts($count, $args = array(), $unique = true, $image_args = array(), $meta_data = array())
     {
         $count  = max(1, (int) $count);
         $return = array();
@@ -37,7 +37,7 @@ class Generator
         for($i = 0; $i < $count; $i++) {
             $new_args = $args;
             $new_args['post_title'] = str_replace('{n}', $i, $new_args['post_title']);
-            $post     = new Post($new_args, $image_args, $meta_data);
+            $post     = new Post($new_args, $unique, $image_args, $meta_data);
             $return[] = $post->insert();
         }
         return $return;

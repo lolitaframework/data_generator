@@ -30,13 +30,20 @@ class Post
     private $inserted_id = null;
 
     /**
+     * Unique post
+     * @var boolean
+     */
+    private $unique = true;
+
+    /**
      * Class constructor
      *
      * @param array $properties
      */
-    public function __construct($properties, $image_data = array(), $meta_data = array())
+    public function __construct($properties, $unique = ture, $image_data = array(), $meta_data = array())
     {
         $this->properties = $properties;
+        $this->unique     = $unique;
         $this->meta_data  = array_merge(
             array(
                 'lf_generator' => true,
@@ -49,14 +56,17 @@ class Post
     /**
      * Insert post with all sutf ( meta, terms, images )
      *
-     * @param  boolean $unique
      * @return Post instance
      */
-    public function insert($unique = false)
+    public function insert()
     {
         $this->properties['post_type'] = Arr::get($this->properties, 'post_type', 'post');
-        if ($unique && array_key_exists('post_title', $this->properties)) {
-            $post = get_page_by_path(sanitize_title($this->properties['post_title']), OBJECT, $post_type);
+        if ($this->unique && array_key_exists('post_title', $this->properties)) {
+            $post = get_page_by_path(
+                sanitize_title($this->properties['post_title']),
+                OBJECT,
+                $this->properties['post_type']
+            );
             if ( null !== $post ) {
                 $this->properties['ID'] = $post->ID;
             }

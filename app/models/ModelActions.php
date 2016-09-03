@@ -37,7 +37,8 @@ class ModelActions
 
         $meta   = (array) Arr::get($request, 'meta', array());
         $meta   = Arr::pluck($meta, 'value', 'name');
-        $result = Generator::posts($count, $args, $image_args, $meta);
+        $unique = (bool) Arr::get($request, 'unique', true);
+        $result = Generator::posts($count, $args, $unique, $image_args, $meta);
 
         wp_send_json_success($result);
     }

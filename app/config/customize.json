@@ -8,6 +8,13 @@
                 "description" : "Generate posts",
                 "__CONTROLS__" : [
                     {
+                        "label" : "Unique",
+                        "type" : "checkbox",
+                        "__SETTINGS__" : {
+                            "default" : true
+                        }
+                    },
+                    {
                         "label" : "Count",
                         "__SETTINGS__" : {
                             "default" : "10"
