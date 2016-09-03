@@ -28,8 +28,8 @@ class Generator
         );
         $image_args = array_merge(
             array(
-                'type' => 'random',
-                'id'   => '',
+                'image_type' => 'random',
+                'image_id'   => '',
             ),
             $image_args
         );
@@ -37,7 +37,7 @@ class Generator
         for($i = 0; $i < $count; $i++) {
             $new_args = $args;
             $new_args['post_title'] = str_replace('{n}', $i, $new_args['post_title']);
-            $post     = new Post($new_args);
+            $post     = new Post($new_args, $image_args);
             $return[] = $post->insert();
         }
         return $return;

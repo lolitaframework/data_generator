@@ -18,6 +18,12 @@ class Post
     private $meta_data = array();
 
     /**
+     * Image data to add in to post
+     * @var array
+     */
+    private $image_data = array();
+
+    /**
      * Inserted post id
      * @var null
      */
@@ -28,7 +34,7 @@ class Post
      *
      * @param array $properties
      */
-    public function __construct($properties, $meta_data = array())
+    public function __construct($properties, $image_data = array(), $meta_data = array())
     {
         $this->properties = $properties;
         $this->meta_data  = array_merge(
@@ -37,6 +43,7 @@ class Post
             ),
             $meta_data
         );
+        $this->image_data = $image_data;
     }
 
     /**
@@ -56,7 +63,7 @@ class Post
         }
         $this->inserted_id = wp_insert_post($this->properties);
         if (!is_wp_error($this->inserted_id) && 0 < $this->inserted_id) {
-            $this->addMeta();
+            $this->addMeta()->addImage();
         }
         return $this->inserted_id;
     }
@@ -70,6 +77,68 @@ class Post
     {
         foreach ($this->meta_data as $key => $value) {
             update_post_meta($this->inserted_id, $key, $value);
+        }
+        return $this;
+    }
+
+    /**
+     * Prepare image data
+     *
+     * @return Post instance.
+     */
+    public function prepareImage()
+    {
+        if ($this->isImageType('random')) {
+            $this->randomImage();
+        }
+        return $this;
+    }
+
+    /**
+     * Is image type
+     *
+     * @param  string  $image_type
+     * @return boolean
+     */
+    public function isImageType($image_type = 'custom')
+    {
+        if(array_key_exists('image_type', $this->image_data)) {
+            $this->image_data['image_type'] = strtolower($this->image_data['image_type']);
+            $image_type                     = strtolower($image_type);
+            return $image_type === $this->image_data['image_type'];
+        }
+        return false;
+    }
+
+    /**
+     * Set random image
+     *
+     * @return Post instance.
+     */
+    public function randomImage()
+    {
+        $args = array(
+            'post_type'      => 'attachment',
+            'post_mime_type' => 'image',
+            'posts_per_page' => 1,
+            'orderby'        => 'rand',
+        );
+        $image = get_posts($args);
+        if (count($image)) {
+            $image = $image[0];
+            $this->image_data['image_id'] = $image->ID;
+        }
+        return $this;
+    }
+
+    /**
+     * Add featured image to the post
+     */
+    public function addImage()
+    {
+        $this->prepareImage();
+        if (array_key_exists('image_id', $this->image_data)) {
+            set_post_thumbnail($this->inserted_id, $this->image_data['image_id']);
         }
         return $this;
     }
