@@ -33,6 +33,7 @@ namespace LolitaFramework {
          */
         generateTerms(e:any) {
             e.preventDefault();
+            console.log('terms generator');
 
             var request:any;
 
@@ -42,7 +43,6 @@ namespace LolitaFramework {
                 'generate_terms',
                 {
                     nonce: (<any>window).lolita_framework.LF_NONCE,
-                    unique: this.api.instance('sample_data_generator_term_unique').get(),
                     count: this.api.instance('sample_data_generator_term_count').get(),
                     taxonomy: this.api.instance('sample_data_generator_term_taxonomy').get(),
                     title: this.api.instance('sample_data_generator_term_title').get(),

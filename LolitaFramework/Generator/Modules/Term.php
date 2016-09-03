@@ -3,7 +3,7 @@ namespace data_generator\LolitaFramework\Generator\Modules;
 
 use \data_generator\LolitaFramework\Core\Arr;
 
-class Post
+class Term
 {
     /**
      * Post properties
@@ -18,23 +18,29 @@ class Post
     private $meta_data = array();
 
     /**
-     * Image data to add in to post
-     * @var array
-     */
-    private $image_data = array();
-
-    /**
      * Inserted post id
      * @var null
      */
     private $inserted_id = null;
 
     /**
+     * Term title
+     * @var null
+     */
+    private $title = null;
+
+    /**
+     * Term taxonomy
+     * @var null
+     */
+    private $taxonomy = null;
+
+    /**
      * Class constructor
      *
      * @param array $properties
      */
-    public function __construct($properties, $image_data = array(), $meta_data = array())
+    public function __construct($title, $taxonomy, $properties = array(), $meta_data = array())
     {
         $this->properties = $properties;
         $this->meta_data  = array_merge(
@@ -43,33 +49,38 @@ class Post
             ),
             $meta_data
         );
-        $this->image_data = $image_data;
+        $this->title      = $title;
+        $this->taxonomy   = $taxonomy;
     }
 
     /**
-     * Insert post with all sutf ( meta, terms, images )
+     * Insert term with all sutf ( meta )
      *
-     * @param boolen  $unique
-     * @return Post instance.
+     * @return Post instance
      */
-    public function insert($unique = true)
+    public function insert()
     {
-        $this->properties['post_type'] = Arr::get($this->properties, 'post_type', 'post');
-        if ($unique && array_key_exists('post_title', $this->properties)) {
-            $post = get_page_by_path(
-                sanitize_title($this->properties['post_title']),
-                OBJECT,
-                $this->properties['post_type']
-            );
-            if ( null !== $post ) {
-                $this->properties['ID'] = $post->ID;
-            }
-        }
-        $this->inserted_id = wp_insert_post($this->properties);
-        if (!is_wp_error($this->inserted_id) && 0 < $this->inserted_id) {
-            $this->addMeta()->addImage();
-        }
-        return $this->inserted_id;
+        return wp_insert_term(
+            $this->title,
+            $this->taxonomy,
+            $this->properties
+        );
+        // $this->properties['post_type'] = Arr::get($this->properties, 'post_type', 'post');
+        // if ($this->unique && array_key_exists('post_title', $this->properties)) {
+        //     $post = get_page_by_path(
+        //         sanitize_title($this->properties['post_title']),
+        //         OBJECT,
+        //         $this->properties['post_type']
+        //     );
+        //     if ( null !== $post ) {
+        //         $this->properties['ID'] = $post->ID;
+        //     }
+        // }
+        // $this->inserted_id = wp_insert_post($this->properties);
+        // if (!is_wp_error($this->inserted_id) && 0 < $this->inserted_id) {
+        //     $this->addMeta()->addImage();
+        // }
+        // return $this->inserted_id;
     }
 
     /**

@@ -67,4 +67,59 @@ class ModelActions
         }
         wp_send_json_success($result);
     }
+
+    /**
+     * Generate new terms
+     *
+     * @return void
+     */
+    public static function generateTerms()
+    {
+        check_ajax_referer('Lolita Framework', 'nonce');
+        $request  = $_POST;
+        $count    = (int) Arr::get($request, 'count', 1);
+        $title    = (string) Arr::get($request, 'title');
+        $taxonomy = (string) Arr::get($request, 'taxonomy');
+        $meta     = (array) Arr::get($request, 'meta', array());
+        $meta     = Arr::pluck($meta, 'value', 'name');
+        $unique   = (bool) Arr::get($request, 'unique', true);
+        $args     = (array) Arr::only(
+            $request,
+            array(
+                'alias_of',
+                'description',
+                'parent',
+                'slug',
+            )
+        );
+
+        $result = Generator::terms($count, $title, $taxonomy, $args, $unique, $meta);
+
+        wp_send_json_success($result);
+    }
+
+    /**
+     * Delete generated posts
+     *
+     * @return void
+     */
+    public static function deleteTerms()
+    {
+        check_ajax_referer('Lolita Framework', 'nonce');
+        $request   = $_POST;
+        $result    = array();
+        $post_type = Arr::get($_POST, 'post_type', 'post');
+        $args      = array(
+            'posts_per_page'   => -1,
+            'meta_key'         => 'lf_generator',
+            'post_type'        => $post_type,
+            'post_status'      => 'publish',
+        );
+
+        $items = get_posts($args);
+        foreach ($items as $item) {
+            $result[] = false !== wp_delete_post($item->ID);
+        }
+        wp_send_json_success($result);
+    }
 }
