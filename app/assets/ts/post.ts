@@ -1,7 +1,7 @@
 /// <reference path="jquery.d.ts" />
 
 namespace LolitaFramework {
-    export class DataGenerator {
+    export class DataGeneratorPost {
 
         /**
          * WP customize
@@ -103,5 +103,5 @@ namespace LolitaFramework {
             return id;
         }
     }
-    (<any>window).LolitaFramework.data_generator = new DataGenerator();
+    (<any>window).LolitaFramework.data_generator_post = new DataGeneratorPost();
 }

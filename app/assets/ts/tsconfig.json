@@ -7,6 +7,6 @@
 		"sourceMap": true
 	},
 	"files": [
-		"data_generator.ts"
+		"post.ts"
 	]
 }

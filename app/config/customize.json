@@ -92,6 +92,73 @@
                         "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
                     }
                 ]
+            },
+            {
+                "title" : "Term",
+                "description" : "Generate terms",
+                "__CONTROLS__" : [
+                    {
+                        "label" : "Unique",
+                        "type" : "checkbox",
+                        "__SETTINGS__" : {
+                            "default" : true
+                        }
+                    },
+                    {
+                        "label" : "Count",
+                        "__SETTINGS__" : {
+                            "default" : "10"
+                        }
+                    },
+                    {
+                        "label" : "Taxonomy",
+                        "type" : "select",
+                        "choices" : ["\\data_generator\\ModelMain", "taxonomies"],
+                        "__SETTINGS__" : {
+                            "default" : "category"
+                        }
+                    },
+                    {
+                        "label" : "Title",
+                        "__SETTINGS__" : {
+                            "default" : "Sample term {n}"
+                        }
+                    },
+                    {
+                        "label" : "Description",
+                        "type" : "textarea",
+                        "rows" : "20",
+                        "__SETTINGS__" : {
+                            "default" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, magnam."
+                        }
+                    },
+                    {
+                        "label" : "Meta data",
+                        "__CLASS__" : "\\data_generator\\LolitaFramework\\Controls\\Repeater\\CustomizeRepeater",
+                        "controls" : [
+                            {
+                                "name"     : "name",
+                                "__TYPE__" : "Text",
+                                "label"    : "Name"
+                            },
+                            {
+                                "name"     : "value",
+                                "__TYPE__" : "Textarea",
+                                "label"    : "Value"
+                            }
+                        ]
+                    },
+                    {
+                        "label":       "Generate",
+                        "description": "Generate posts",
+                        "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
+                    },
+                    {
+                        "label":       "Deleta all",
+                        "description": "Delete all generated posts",
+                        "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
+                    }
+                ]
             }
         ]
     }
