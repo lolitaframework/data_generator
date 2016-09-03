@@ -35,7 +35,10 @@ class ModelActions
             )
         );
 
-        $result = Generator::posts($count, $args, $image_args);
+        $meta   = (array) Arr::get($request, 'meta', array());
+        $meta   = Arr::pluck($meta, 'value', 'name');
+        $result = Generator::posts($count, $args, $image_args, $meta);
+
         wp_send_json_success($result);
     }
 
