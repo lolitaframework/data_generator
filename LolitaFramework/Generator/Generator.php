@@ -2,6 +2,7 @@
 namespace data_generator\LolitaFramework\Generator;
 
 use \data_generator\LolitaFramework\Core\Str;
+use \data_generator\LolitaFramework\Core\Arr;
 use \data_generator\LolitaFramework\Generator\Modules\Post;
 use \data_generator\LolitaFramework\Generator\Modules\Term;
 
@@ -44,6 +45,33 @@ class Generator
     }
 
     /**
+     * Delete all generated posts
+     *
+     * @param  array $args
+     * @return array
+     */
+    public static function deletePosts($args)
+    {
+        $result    = array();
+        $post_type = Arr::get($args, 'post_type', 'post');
+        $args      = array(
+            'posts_per_page'   => -1,
+            'meta_key'         => 'lf_generator',
+            'post_type'        => $post_type,
+            'post_status'      => 'publish',
+        );
+
+        $items = get_posts($args);
+        foreach ($items as $item) {
+            $result[] = array(
+                'id'      => $item->ID,
+                'deleted' => false !== wp_delete_post($item->ID),
+            );
+        }
+        return $result;
+    }
+
+    /**
      * Create few terms
      *
      * @param  integer  $count
@@ -52,7 +80,7 @@ class Generator
      * @param  array    $meta_data 
      * @return array
      */
-    public static function terms($count, $title, $taxonomy, $args = array(), $meta_data = array())
+    public static function terms($count, $title, $taxonomy, array $args = array(), array $meta_data = array())
     {
         $return = array();
         $count  = max(1, (int) $count);
@@ -64,5 +92,32 @@ class Generator
             $return[]         = $term->insert();
         }
         return $return;
+    }
+
+    /**
+     * Delete terms
+     *
+     * @param  array $args
+     * @return array deleted terms.
+     */
+    public static function deleteTerms($args)
+    {
+        $result   = array();
+        $taxonomy = Arr::get($args, 'taxonomy', 'category');
+        $args     = array(
+            'taxonomy'   => $taxonomy,
+            'hide_empty' => false,
+            'meta_key'   => 'lf_generator',
+        );
+        $terms = get_terms($args);
+        if (!is_wp_error($terms)) {
+            foreach ((array) $terms as $t) {
+                $result[] = array(
+                    'term_id' => $t->term_id,
+                    'deleted' => false !== wp_delete_term($t->term_id, $t->taxonomy),
+                );
+            }
+        }
+        return $result;
     }
 }

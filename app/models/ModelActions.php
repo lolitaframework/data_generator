@@ -51,20 +51,12 @@ class ModelActions
     public static function deletePosts()
     {
         check_ajax_referer('Lolita Framework', 'nonce');
-        $request   = $_POST;
-        $result    = array();
-        $post_type = Arr::get($_POST, 'post_type', 'post');
-        $args      = array(
-            'posts_per_page'   => -1,
-            'meta_key'         => 'lf_generator',
-            'post_type'        => $post_type,
-            'post_status'      => 'publish',
+        $request = $_POST;
+        $result  = Generator::deletePosts(
+            array(
+                'post_type' => Arr::get($request, 'post_type', 'post'),
+            )
         );
-
-        $items = get_posts($args);
-        foreach ($items as $item) {
-            $result[] = false !== wp_delete_post($item->ID);
-        }
         wp_send_json_success($result);
     }
 
@@ -82,7 +74,6 @@ class ModelActions
         $taxonomy = (string) Arr::get($request, 'taxonomy');
         $meta     = (array) Arr::get($request, 'meta', array());
         $meta     = Arr::pluck($meta, 'value', 'name');
-        $unique   = (bool) Arr::get($request, 'unique', true);
         $args     = (array) Arr::only(
             $request,
             array(
@@ -93,7 +84,7 @@ class ModelActions
             )
         );
 
-        $result = Generator::terms($count, $title, $taxonomy, $args, $unique, $meta);
+        $result = Generator::terms($count, $title, $taxonomy, $args, $meta);
 
         wp_send_json_success($result);
     }
@@ -106,20 +97,12 @@ class ModelActions
     public static function deleteTerms()
     {
         check_ajax_referer('Lolita Framework', 'nonce');
-        $request   = $_POST;
-        $result    = array();
-        $post_type = Arr::get($_POST, 'post_type', 'post');
-        $args      = array(
-            'posts_per_page'   => -1,
-            'meta_key'         => 'lf_generator',
-            'post_type'        => $post_type,
-            'post_status'      => 'publish',
+        $request = $_POST;
+        $result  = Generator::deleteTerms(
+            array(
+                'taxonomy' => Arr::get($request, 'taxonomy', 'category'),
+            )
         );
-
-        $items = get_posts($args);
-        foreach ($items as $item) {
-            $result[] = false !== wp_delete_post($item->ID);
-        }
         wp_send_json_success($result);
     }
 }
