@@ -16,13 +16,13 @@ namespace LolitaFramework {
             this.api = (<any>window).wp.customize;
             jQuery(document).on(
                 'click',
-                '#sample_data_generator_post_generate',
+                '#data_generator_post_generate',
                 (e:any) => this.generatePosts(e)
             );
 
             jQuery(document).on(
                 'click',
-                '#sample_data_generator_post_deleta_all',
+                '#data_generator_post_deleta_all',
                 (e:any) => this.deletePosts(e)
             );
         }
@@ -42,15 +42,15 @@ namespace LolitaFramework {
                 'generate_posts',
                 {
                     nonce: (<any>window).lolita_framework.LF_NONCE,
-                    unique: this.api.instance('sample_data_generator_post_unique').get(),
-                    count: this.api.instance('sample_data_generator_post_count').get(),
-                    post_type: this.api.instance('sample_data_generator_post_post_type').get(),
-                    post_title: this.api.instance('sample_data_generator_post_custom_title').get(),
-                    post_content: this.api.instance('sample_data_generator_post_custom_content').get(),
-                    post_excerpt: this.api.instance('sample_data_generator_post_custom_excerpt').get(),
-                    image_type: this.api.instance('sample_data_generator_post_featured_image_type').get(),
-                    image_id: this.getImageID('sample_data_generator_post_featured_image'),
-                    meta: this.api.instance('sample_data_generator_post_meta_data').get()
+                    unique: this.api.instance('data_generator_post_unique').get(),
+                    count: this.api.instance('data_generator_post_count').get(),
+                    post_type: this.api.instance('data_generator_post_post_type').get(),
+                    post_title: this.api.instance('data_generator_post_custom_title').get(),
+                    post_content: this.api.instance('data_generator_post_custom_content').get(),
+                    post_excerpt: this.api.instance('data_generator_post_custom_excerpt').get(),
+                    image_type: this.api.instance('data_generator_post_featured_image_type').get(),
+                    image_id: this.getImageID('data_generator_post_featured_image'),
+                    meta: this.api.instance('data_generator_post_meta_data').get()
                 }
             );
 
@@ -77,7 +77,7 @@ namespace LolitaFramework {
                     'delete_posts',
                     {
                         nonce: (<any>window).lolita_framework.LF_NONCE,
-                        post_type: this.api.instance('sample_data_generator_post_post_type').get()
+                        post_type: this.api.instance('data_generator_post_post_type').get()
                     }
                 );
 
@@ -96,7 +96,7 @@ namespace LolitaFramework {
         getImageID(control_name:string) {
             var id:number;
             try{
-                id = this.api.control('sample_data_generator_post_featured_image').params.attachment.id;
+                id = this.api.control('data_generator_post_featured_image').params.attachment.id;
             } catch(err) {
                 id = 0;
             }

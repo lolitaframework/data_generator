@@ -16,13 +16,13 @@ namespace LolitaFramework {
             this.api = (<any>window).wp.customize;
             jQuery(document).on(
                 'click',
-                '#sample_data_generator_term_generate',
+                '#data_generator_term_generate',
                 (e:any) => this.generateTerms(e)
             );
 
             jQuery(document).on(
                 'click',
-                '#sample_data_generator_term_deleta_all',
+                '#data_generator_term_deleta_all',
                 (e:any) => this.deleteTerms(e)
             );
         }
@@ -43,11 +43,11 @@ namespace LolitaFramework {
                 'generate_terms',
                 {
                     nonce: (<any>window).lolita_framework.LF_NONCE,
-                    count: this.api.instance('sample_data_generator_term_count').get(),
-                    taxonomy: this.api.instance('sample_data_generator_term_taxonomy').get(),
-                    title: this.api.instance('sample_data_generator_term_title').get(),
-                    description: this.api.instance('sample_data_generator_term_description').get(),
-                    meta: this.api.instance('sample_data_generator_term_meta_data').get()
+                    count: this.api.instance('data_generator_term_count').get(),
+                    taxonomy: this.api.instance('data_generator_term_taxonomy').get(),
+                    title: this.api.instance('data_generator_term_title').get(),
+                    description: this.api.instance('data_generator_term_description').get(),
+                    meta: this.api.instance('data_generator_term_meta_data').get()
                 }
             );
 
@@ -74,7 +74,7 @@ namespace LolitaFramework {
                     'delete_terms',
                     {
                         nonce: (<any>window).lolita_framework.LF_NONCE,
-                        taxonomy: this.api.instance('sample_data_generator_term_taxonomy').get()
+                        taxonomy: this.api.instance('data_generator_term_taxonomy').get()
                     }
                 );
 
