@@ -8,7 +8,8 @@ namespace data_generator\LolitaFramework\Controls\Icons;
  *
  * @see WP_Customize_Control
  */
-class CustomizeIcons extends \WP_Customize_Control {
+class CustomizeIcons extends \WP_Customize_Control
+{
     /**
      * Control type.
      *
@@ -18,6 +19,10 @@ class CustomizeIcons extends \WP_Customize_Control {
      */
     public $type = 'icons';
 
+    /**
+     * Control
+     * @var null
+     */
     private $icons_control = null;
 
     /**

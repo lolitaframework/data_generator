@@ -125,8 +125,8 @@ class Customize implements IModule
     /**
      * Prepare section data
      *
-     * @param  string $panel_id 
-     * @param  array  $data 
+     * @param  string $panel_id
+     * @param  array  $data
      * @return prepared data
      */
     private function prepareSection($panel_id, array $data)
@@ -182,9 +182,9 @@ class Customize implements IModule
     /**
      * Prepare control data
      *
-     * @param  string $panel_id 
-     * @param  string $section_id 
-     * @param  array  $data 
+     * @param  string $panel_id
+     * @param  string $section_id
+     * @param  array  $data
      * @return prepared data
      */
     private function prepareControl($panel_id, $section_id, array $data)

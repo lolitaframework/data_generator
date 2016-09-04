@@ -5,7 +5,8 @@ use \data_generator\LolitaFramework\Core\Arr;
 use \data_generator\LolitaFramework\Core\Url;
 use \data_generator\LolitaFramework\Core\View;
 
-class CustomizeButton extends \WP_Customize_Control {
+class CustomizeButton extends \WP_Customize_Control
+{
     /**
      * Control type.
      *
@@ -30,7 +31,7 @@ class CustomizeButton extends \WP_Customize_Control {
      */
     public function __construct($manager, $id, $args = array())
     {
-        parent::__construct( $manager, $id, $args );
+        parent::__construct($manager, $id, $args);
         $this->control = new Button(
             $this->settings['default']->id,
             $this->value(),
@@ -45,7 +46,8 @@ class CustomizeButton extends \WP_Customize_Control {
     /**
      * Enqueue control related scripts/styles.
      */
-    public function enqueue() {
+    public function enqueue()
+    {
     }
 
     /**
@@ -56,10 +58,11 @@ class CustomizeButton extends \WP_Customize_Control {
      *
      * @see WP_Customize_Control::to_json()
      */
-    public function to_json() {
+    public function to_json()
+    {
         parent::to_json();
-        $this->json['label'] = html_entity_decode( $this->label, ENT_QUOTES, get_bloginfo( 'charset' ) );
-        $this->json['canUpload'] = current_user_can( 'upload_files' );
+        $this->json['label']     = html_entity_decode($this->label, ENT_QUOTES, get_bloginfo('charset'));
+        $this->json['canUpload'] = current_user_can('upload_files');
     }
 
     /**
@@ -86,6 +89,7 @@ class CustomizeButton extends \WP_Customize_Control {
      * @since 4.1.0
      * @since 4.2.0 Moved from WP_Customize_Upload_Control.
      */
-    public function content_template() {
+    public function content_template()
+    {
     }
 }
