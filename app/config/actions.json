@@ -1,10 +1,10 @@
 [
-    ["wp_ajax_generate_posts", ["\\data_generator\\ModelActions", "generatePosts"]],
-    ["wp_ajax_nopriv_generate_posts", ["\\data_generator\\ModelActions", "generatePosts"]],
-    ["wp_ajax_delete_posts", ["\\data_generator\\ModelActions", "deletePosts"]],
-    ["wp_ajax_nopriv_delete_posts", ["\\data_generator\\ModelActions", "deletePosts"]],
-    ["wp_ajax_generate_terms", ["\\data_generator\\ModelActions", "generateTerms"]],
-    ["wp_ajax_nopriv_generate_terms", ["\\data_generator\\ModelActions", "generateTerms"]],
-    ["wp_ajax_delete_terms", ["\\data_generator\\ModelActions", "deleteTerms"]],
-    ["wp_ajax_nopriv_delete_terms", ["\\data_generator\\ModelActions", "deleteTerms"]]
+    ["wp_ajax_generate_posts", ["\\datagenerator\\ModelActions", "generatePosts"]],
+    ["wp_ajax_nopriv_generate_posts", ["\\datagenerator\\ModelActions", "generatePosts"]],
+    ["wp_ajax_delete_posts", ["\\datagenerator\\ModelActions", "deletePosts"]],
+    ["wp_ajax_nopriv_delete_posts", ["\\datagenerator\\ModelActions", "deletePosts"]],
+    ["wp_ajax_generate_terms", ["\\datagenerator\\ModelActions", "generateTerms"]],
+    ["wp_ajax_nopriv_generate_terms", ["\\datagenerator\\ModelActions", "generateTerms"]],
+    ["wp_ajax_delete_terms", ["\\datagenerator\\ModelActions", "deleteTerms"]],
+    ["wp_ajax_nopriv_delete_terms", ["\\datagenerator\\ModelActions", "deleteTerms"]]
 ]

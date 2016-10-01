@@ -1,9 +1,9 @@
 <?php
-namespace data_generator\LolitaFramework\Widgets;
+namespace datagenerator\LolitaFramework\Widgets;
 
-use \data_generator\LolitaFramework\Core\Str;
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\Loc;
+use \datagenerator\LolitaFramework\Core\Str;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Loc;
 use \WP_Widget;
 
 class Parser

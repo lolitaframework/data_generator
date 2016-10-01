@@ -1,13 +1,13 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Repeater;
+namespace datagenerator\LolitaFramework\Controls\Repeater;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Controls\Controls;
-use \data_generator\LolitaFramework\Controls\IHaveAdminEnqueue;
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\Url;
-use \data_generator\LolitaFramework;
-use \data_generator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Controls\Controls;
+use \datagenerator\LolitaFramework\Controls\IHaveAdminEnqueue;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework;
+use \datagenerator\LolitaFramework\Core\View;
 
 class Repeater extends Control implements iHaveAdminEnqueue
 {

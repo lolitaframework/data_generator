@@ -1,8 +1,8 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Checkboxes;
+namespace datagenerator\LolitaFramework\Controls\Checkboxes;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Core\Arr;
 
 class Checkboxes extends Control
 {

@@ -1,7 +1,7 @@
 <?php
-namespace data_generator;
+namespace datagenerator;
 
-use \data_generator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework\Core\Url;
 
 /**
  * Lolita Framework singlton class

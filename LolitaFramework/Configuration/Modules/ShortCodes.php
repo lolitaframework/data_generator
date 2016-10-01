@@ -1,8 +1,8 @@
 <?php
-namespace data_generator\LolitaFramework\Configuration\Modules;
+namespace datagenerator\LolitaFramework\Configuration\Modules;
 
-use \data_generator\LolitaFramework\Configuration\Configuration as Configuration;
-use \data_generator\LolitaFramework\Configuration\IModule as IModule;
+use \datagenerator\LolitaFramework\Configuration\Configuration as Configuration;
+use \datagenerator\LolitaFramework\Configuration\IModule as IModule;
 
 class ShortCodes implements IModule
 {

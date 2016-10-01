@@ -1,8 +1,8 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Textarea;
+namespace datagenerator\LolitaFramework\Controls\Textarea;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Core\Arr;
 
 class Textarea extends Control
 {

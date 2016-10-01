@@ -1,6 +1,6 @@
 <?php
 
-namespace data_generator\LolitaFramework\Core;
+namespace datagenerator\LolitaFramework\Core;
 
 /**
  * Doctrine inflector has static methods for inflecting text.

@@ -1,8 +1,8 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Button;
+namespace datagenerator\LolitaFramework\Controls\Button;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Core\Arr;
 
 class Button extends Control
 {

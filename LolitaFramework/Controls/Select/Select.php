@@ -1,8 +1,8 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Select;
+namespace datagenerator\LolitaFramework\Controls\Select;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Core\Arr;
 
 class Select extends Control
 {

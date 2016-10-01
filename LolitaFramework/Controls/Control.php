@@ -1,11 +1,11 @@
 <?php
-namespace data_generator\LolitaFramework\Controls;
+namespace datagenerator\LolitaFramework\Controls;
 
-use \data_generator\LolitaFramework\Core\Str;
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\View;
-use \data_generator\LolitaFramework\Core\Url;
-use \data_generator\LolitaFramework;
+use \datagenerator\LolitaFramework\Core\Str;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework;
 
 abstract class Control
 {

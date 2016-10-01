@@ -1,10 +1,10 @@
 <?php
-namespace data_generator\LolitaFramework\CssLoader;
+namespace datagenerator\LolitaFramework\CssLoader;
 
-use \data_generator\LolitaFramework;
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\View;
-use \data_generator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Url;
 
 class CssLoader
 {

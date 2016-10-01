@@ -23,7 +23,7 @@
                     {
                         "label" : "Post type",
                         "type" : "select",
-                        "choices" : ["\\data_generator\\ModelMain", "postTypes"],
+                        "choices" : ["\\datagenerator\\ModelMain", "postTypes"],
                         "__SETTINGS__" : {
                             "default" : "post"
                         }
@@ -67,7 +67,7 @@
                     },
                     {
                         "label" : "Meta data",
-                        "__CLASS__" : "\\data_generator\\LolitaFramework\\Controls\\Repeater\\CustomizeRepeater",
+                        "__CLASS__" : "\\datagenerator\\LolitaFramework\\Controls\\Repeater\\CustomizeRepeater",
                         "controls" : [
                             {
                                 "name"     : "name",
@@ -84,12 +84,12 @@
                     {
                         "label":       "Generate",
                         "description": "Generate posts",
-                        "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
+                        "__CLASS__":   "\\datagenerator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
                     },
                     {
                         "label":       "Deleta all",
                         "description": "Delete all generated posts",
-                        "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
+                        "__CLASS__":   "\\datagenerator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
                     }
                 ]
             },
@@ -106,7 +106,7 @@
                     {
                         "label" : "Taxonomy",
                         "type" : "select",
-                        "choices" : ["\\data_generator\\ModelMain", "taxonomies"],
+                        "choices" : ["\\datagenerator\\ModelMain", "taxonomies"],
                         "__SETTINGS__" : {
                             "default" : "category"
                         }
@@ -127,7 +127,7 @@
                     },
                     {
                         "label" : "Meta data",
-                        "__CLASS__" : "\\data_generator\\LolitaFramework\\Controls\\Repeater\\CustomizeRepeater",
+                        "__CLASS__" : "\\datagenerator\\LolitaFramework\\Controls\\Repeater\\CustomizeRepeater",
                         "controls" : [
                             {
                                 "name"     : "name",
@@ -144,12 +144,12 @@
                     {
                         "label":       "Generate",
                         "description": "Generate posts",
-                        "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
+                        "__CLASS__":   "\\datagenerator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
                     },
                     {
                         "label":       "Deleta all",
                         "description": "Delete all generated posts",
-                        "__CLASS__":   "\\data_generator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
+                        "__CLASS__":   "\\datagenerator\\LolitaFramework\\Controls\\Button\\CustomizeButton"
                     }
                 ]
             }

@@ -1,11 +1,11 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Icons;
+namespace datagenerator\LolitaFramework\Controls\Icons;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Controls\IHaveAdminEnqueue;
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework;
-use \data_generator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Controls\IHaveAdminEnqueue;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework;
+use \datagenerator\LolitaFramework\Core\Url;
 
 class Icons extends Control implements iHaveAdminEnqueue
 {

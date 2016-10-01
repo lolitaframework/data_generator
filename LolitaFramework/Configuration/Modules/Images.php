@@ -1,8 +1,8 @@
 <?php
-namespace data_generator\LolitaFramework\Configuration\Modules;
+namespace datagenerator\LolitaFramework\Configuration\Modules;
 
-use \data_generator\LolitaFramework\Configuration\Configuration;
-use \data_generator\LolitaFramework\Configuration\IModule;
+use \datagenerator\LolitaFramework\Configuration\Configuration;
+use \datagenerator\LolitaFramework\Configuration\IModule;
 
 class Images implements IModule
 {

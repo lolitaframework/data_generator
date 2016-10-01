@@ -1,10 +1,10 @@
 <?php
-namespace data_generator\LolitaFramework\Widgets;
+namespace datagenerator\LolitaFramework\Widgets;
 
-use \data_generator\LolitaFramework\Core\Loc;
-use \data_generator\LolitaFramework\Core\Str;
-use \data_generator\LolitaFramework\Controls\Controls;
-use \data_generator\LolitaFramework;
+use \datagenerator\LolitaFramework\Core\Loc;
+use \datagenerator\LolitaFramework\Core\Str;
+use \datagenerator\LolitaFramework\Controls\Controls;
+use \datagenerator\LolitaFramework;
 
 class Widgets
 {

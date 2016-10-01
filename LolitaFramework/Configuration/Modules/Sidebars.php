@@ -1,10 +1,10 @@
 <?php
-namespace data_generator\LolitaFramework\Configuration\Modules;
+namespace datagenerator\LolitaFramework\Configuration\Modules;
 
-use \data_generator\LolitaFramework\Core\Str;
-use \data_generator\LolitaFramework\Configuration\Init;
-use \data_generator\LolitaFramework\Configuration\Configuration;
-use \data_generator\LolitaFramework\Configuration\IModule;
+use \datagenerator\LolitaFramework\Core\Str;
+use \datagenerator\LolitaFramework\Configuration\Init;
+use \datagenerator\LolitaFramework\Configuration\Configuration;
+use \datagenerator\LolitaFramework\Configuration\IModule;
 
 class Sidebars extends Init implements IModule
 {

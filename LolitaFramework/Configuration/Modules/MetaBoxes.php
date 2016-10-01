@@ -1,11 +1,11 @@
 <?php
-namespace data_generator\LolitaFramework\Configuration\Modules;
+namespace datagenerator\LolitaFramework\Configuration\Modules;
 
-use \data_generator\LolitaFramework\Core\View;
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Configuration\Configuration;
-use \data_generator\LolitaFramework\Configuration\IModule;
-use \data_generator\LolitaFramework\Controls\Controls;
+use \datagenerator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Configuration\Configuration;
+use \datagenerator\LolitaFramework\Configuration\IModule;
+use \datagenerator\LolitaFramework\Controls\Controls;
 
 class MetaBoxes implements IModule
 {

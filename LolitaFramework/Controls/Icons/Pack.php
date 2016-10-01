@@ -1,10 +1,10 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Icons;
+namespace datagenerator\LolitaFramework\Controls\Icons;
 
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\Loc;
-use \data_generator\LolitaFramework\Core\Data;
-use \data_generator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Loc;
+use \datagenerator\LolitaFramework\Core\Data;
+use \datagenerator\LolitaFramework\Core\View;
 
 class Pack
 {

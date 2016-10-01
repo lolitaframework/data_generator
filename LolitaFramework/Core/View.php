@@ -1,7 +1,7 @@
 <?php
-namespace data_generator\LolitaFramework\Core;
+namespace datagenerator\LolitaFramework\Core;
 
-use \data_generator\LolitaFramework;
+use \datagenerator\LolitaFramework;
 
 class View
 {

@@ -1,12 +1,12 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Gallery;
+namespace datagenerator\LolitaFramework\Controls\Gallery;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Controls\IHaveAdminEnqueue;
-use \data_generator\LolitaFramework\Core\Img;
-use \data_generator\LolitaFramework\Core\View;
-use \data_generator\LolitaFramework\Core\Url;
-use \data_generator\LolitaFramework;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Controls\IHaveAdminEnqueue;
+use \datagenerator\LolitaFramework\Core\Img;
+use \datagenerator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework;
 
 class Gallery extends Control implements iHaveAdminEnqueue
 {

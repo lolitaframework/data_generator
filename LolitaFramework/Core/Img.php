@@ -1,5 +1,5 @@
 <?php
-namespace data_generator\LolitaFramework\Core;
+namespace datagenerator\LolitaFramework\Core;
 
 class Img
 {

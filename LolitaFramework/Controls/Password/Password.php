@@ -1,8 +1,8 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Password;
+namespace datagenerator\LolitaFramework\Controls\Password;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Core\Arr;
 
 class Password extends Control
 {

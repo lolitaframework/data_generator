@@ -1,7 +1,7 @@
 <?php
-namespace data_generator\LolitaFramework\Generator\Modules;
+namespace datagenerator\LolitaFramework\Generator\Modules;
 
-use \data_generator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Arr;
 
 class Post
 {

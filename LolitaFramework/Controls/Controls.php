@@ -1,9 +1,9 @@
 <?php
-namespace data_generator\LolitaFramework\Controls;
+namespace datagenerator\LolitaFramework\Controls;
 
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\Cls;
-use \data_generator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Cls;
+use \datagenerator\LolitaFramework\Core\View;
 
 /**
  * Controls collection class

@@ -1,9 +1,9 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Repeater;
+namespace datagenerator\LolitaFramework\Controls\Repeater;
 
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\Url;
-use \data_generator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework\Core\View;
 
 /**
  * Customize Media Control class.

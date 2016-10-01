@@ -1,8 +1,8 @@
 <?php
-namespace data_generator;
+namespace datagenerator;
 
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Generator\Generator;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Generator\Generator;
 
 class ModelActions
 {

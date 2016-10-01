@@ -1,5 +1,5 @@
 <?php
-namespace data_generator\LolitaFramework\Controls;
+namespace datagenerator\LolitaFramework\Controls;
 
 interface IHaveEnqueue
 {

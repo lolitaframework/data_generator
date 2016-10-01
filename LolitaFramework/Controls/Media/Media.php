@@ -1,13 +1,13 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Media;
+namespace datagenerator\LolitaFramework\Controls\Media;
 
-use \data_generator\LolitaFramework\Controls\Control;
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\Img;
-use \data_generator\LolitaFramework\Core\View;
-use \data_generator\LolitaFramework\Core\Url;
-use \data_generator\LolitaFramework\Controls\IHaveAdminEnqueue;
-use \data_generator\LolitaFramework;
+use \datagenerator\LolitaFramework\Controls\Control;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Img;
+use \datagenerator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework\Controls\IHaveAdminEnqueue;
+use \datagenerator\LolitaFramework;
 
 class Media extends Control implements iHaveAdminEnqueue
 {

@@ -1,9 +1,9 @@
 <?php
-namespace data_generator\LolitaFramework\Controls\Button;
+namespace datagenerator\LolitaFramework\Controls\Button;
 
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\Url;
-use \data_generator\LolitaFramework\Core\View;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Url;
+use \datagenerator\LolitaFramework\Core\View;
 
 class CustomizeButton extends \WP_Customize_Control
 {

@@ -1,9 +1,9 @@
 <?php
-namespace data_generator\LolitaFramework\Configuration;
+namespace datagenerator\LolitaFramework\Configuration;
 
-use \data_generator\LolitaFramework\Core\Loc;
-use \data_generator\LolitaFramework\Core\Cls;
-use \data_generator\LolitaFramework;
+use \datagenerator\LolitaFramework\Core\Loc;
+use \datagenerator\LolitaFramework\Core\Cls;
+use \datagenerator\LolitaFramework;
 
 class Configuration
 {

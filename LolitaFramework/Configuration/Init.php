@@ -1,5 +1,5 @@
 <?php
-namespace data_generator\LolitaFramework\Configuration;
+namespace datagenerator\LolitaFramework\Configuration;
 
 abstract class Init
 {

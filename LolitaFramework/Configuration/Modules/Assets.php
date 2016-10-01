@@ -1,11 +1,11 @@
 <?php
-namespace data_generator\LolitaFramework\Configuration\Modules;
+namespace datagenerator\LolitaFramework\Configuration\Modules;
 
-use \data_generator\LolitaFramework\Core\Str;
-use \data_generator\LolitaFramework\Core\Arr;
-use \data_generator\LolitaFramework\Core\Data;
-use \data_generator\LolitaFramework\Configuration\Configuration;
-use \data_generator\LolitaFramework\Configuration\IModule;
+use \datagenerator\LolitaFramework\Core\Str;
+use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Data;
+use \datagenerator\LolitaFramework\Configuration\Configuration;
+use \datagenerator\LolitaFramework\Configuration\IModule;
 
 class Assets implements IModule
 {
