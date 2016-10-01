@@ -116,6 +116,7 @@ class LolitaFramework
     public function autoload($class)
     {
         $class_path = dirname(dirname(__DIR__)) . DS . str_replace('\\', '/', $class) . '.php';
+        $class_path = str_replace('datagenerator', 'data-generator', $class_path);
         if (file_exists($class_path)) {
             require_once $class_path;
         }

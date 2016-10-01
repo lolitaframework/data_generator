@@ -20,6 +20,10 @@ Provides multiple example posts, pages, custom terms to assist with styling and 
 2. Activate the plugin through the "Plugins" menu in WordPress
 3. Navigate to the "Customizer -> Data Generator" section to start generating sample data.
 
+== Screenshots ==
+1. Generating posts.
+2. Generating categories.
+
 == Changelog ==
 
 = 1.0.0 =
