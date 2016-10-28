@@ -105,4 +105,18 @@ class ModelActions
         );
         wp_send_json_success($result);
     }
+
+    public static function addDataList()
+    {
+        ?>
+        <datalist id="smartdata">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+
+        <?php
+    }
 }

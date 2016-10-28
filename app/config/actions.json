@@ -6,5 +6,6 @@
     ["wp_ajax_generate_terms", ["\\datagenerator\\ModelActions", "generateTerms"]],
     ["wp_ajax_nopriv_generate_terms", ["\\datagenerator\\ModelActions", "generateTerms"]],
     ["wp_ajax_delete_terms", ["\\datagenerator\\ModelActions", "deleteTerms"]],
-    ["wp_ajax_nopriv_delete_terms", ["\\datagenerator\\ModelActions", "deleteTerms"]]
+    ["wp_ajax_nopriv_delete_terms", ["\\datagenerator\\ModelActions", "deleteTerms"]],
+    ["customize_controls_enqueue_scripts", ["\\datagenerator\\ModelActions", "addDataList"]]
 ]

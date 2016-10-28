@@ -3,9 +3,11 @@ namespace datagenerator\LolitaFramework\Configuration\Modules;
 
 use \datagenerator\LolitaFramework\Core\Str;
 use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Loc;
 use \datagenerator\LolitaFramework\Core\Data;
 use \datagenerator\LolitaFramework\Configuration\Configuration;
 use \datagenerator\LolitaFramework\Configuration\IModule;
+use \datagenerator\LolitaFramework;
 
 class Assets implements IModule
 {
@@ -42,30 +44,39 @@ class Assets implements IModule
             add_action('admin_enqueue_scripts', array( $this, 'enqueue' ));
             add_action('login_enqueue_scripts', array( $this, 'enqueue' ));
             add_action('wp_footer', array( $this, 'enqueue' ));
+            add_action('login_footer', array( $this, 'enqueue' ));
             add_action('customize_controls_enqueue_scripts', array( $this, 'enqueue' ));
+
+            add_action('wp_enqueue_scripts', array( $this, 'base' ));
+            add_action('admin_enqueue_scripts', array( $this, 'base' ));
+            add_action('login_enqueue_scripts', array( $this, 'base' ));
+            add_action('customize_controls_enqueue_scripts', array( $this, 'base' ));
         } else {
             throw new \Exception(__('JSON can be converted to Array', 'lolita'));
         }
-        add_action('wp_footer', array(&$this, 'baseData'));
-        add_action('admin_footer', array(&$this, 'baseData'));
-        add_action('login_footer', array(&$this, 'baseData'));
-        add_action('customize_controls_enqueue_scripts', array(&$this, 'baseData'));
     }
 
     /**
-     * Add base data
+     * Base js
      *
      * @return void
      */
-    public function baseData()
+    public function base()
     {
-        echo Arr::l10n(
+        $assets = LolitaFramework::url() . DS . 'assets' . DS;
+
+        wp_enqueue_script('lolita', $assets . 'js' . DS . 'lolita.js', array(), '1.0', true);
+        wp_localize_script(
+            'lolita',
             'lolita_framework',
             array(
-                'LF_NONCE' => LF_NONCE,
-                'SITE_URL' => SITE_URL,
+                'LF_NONCE'  => LF_NONCE,
+                'SITE_URL'  => SITE_URL,
+                'ADMIN_URL' => admin_url(),
             )
         );
+
+        wp_enqueue_style('lolita', $assets . 'css' . DS . 'lolita.css', array(), '1.0');
     }
 
     /**
@@ -80,7 +91,6 @@ class Assets implements IModule
             'deregister_scripts',
             'scripts',
             'styles',
-            'styles_async',
             'localize',
             'custom',
             'customize',
@@ -108,9 +118,15 @@ class Assets implements IModule
      */
     private function getPrefixFromAction($action)
     {
-        if ('wp_footer' === $action) {
-            return 'async_';
+        $dictionary = array(
+            'wp_footer'    => 'async_',
+            'login_footer' => 'async_login_',
+            'admin_footer' => 'async_admin_',
+        );
+        if (array_key_exists($action, $dictionary)) {
+            return $dictionary[$action];
         }
+
         $pieces = explode('_', $action);
         if ('wp' === $pieces[0]) {
             return '';

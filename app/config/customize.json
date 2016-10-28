@@ -8,13 +8,6 @@
                 "description" : "Generate posts",
                 "__CONTROLS__" : [
                     {
-                        "label" : "Unique",
-                        "type" : "checkbox",
-                        "__SETTINGS__" : {
-                            "default" : true
-                        }
-                    },
-                    {
                         "label" : "Count",
                         "__SETTINGS__" : {
                             "default" : "10"
@@ -30,6 +23,9 @@
                     },
                     {
                         "label" : "Custom title",
+                        "input_attrs" : {
+                            "list" : "smartdata"
+                        },
                         "__SETTINGS__" : {
                             "default" : "Sample post {n}"
                         }

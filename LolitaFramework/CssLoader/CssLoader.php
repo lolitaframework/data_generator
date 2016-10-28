@@ -15,12 +15,12 @@ class CssLoader
      */
     public function __construct()
     {
+        require_once('templates.php');
         add_action('wp_enqueue_scripts', array(&$this, 'addScriptsAndStyles'));
         add_action('admin_enqueue_scripts', array(&$this, 'addScriptsAndStyles'));
-        add_action('wp_footer', array(&$this, 'renderTemplates'));
-        add_action('admin_footer', array(&$this, 'renderTemplates'));
         add_action('customize_controls_enqueue_scripts', array(&$this, 'addScriptsAndStyles'));
-        add_action('customize_controls_enqueue_scripts', array(&$this, 'renderTemplates'));
+        // add_action('customize_controls_enqueue_scripts', array(&$this, 'addScriptsAndStyles'));
+        // add_action('customize_controls_enqueue_scripts', array(&$this, 'renderTemplates'));
         $this->addShortcodes();
     }
 
@@ -54,25 +54,11 @@ class CssLoader
             false,
             true
         );
-    }
 
-    /**
-     * Add Loader templates
-     *
-     * @author Guriev Eugen <gurievcreative@gmail.com>
-     */
-    public function renderTemplates()
-    {
-        echo View::make(__DIR__ . DS . 'views' . DS . 'lf_css_loader.php');
-
-        $assets = Url::toUrl(__DIR__) . DS . 'assets' . DS;
         // ==============================================================
         // Styles
         // ==============================================================
-        wp_enqueue_style(
-            'lolita-css-loader',
-            $assets . 'css' . DS . 'lolita_css_loader.css'
-        );
+        wp_enqueue_style('lolita-css-loader', $assets . 'css' . DS . 'lolita_css_loader.css', array(), '1.0');
     }
 
     /**
@@ -84,13 +70,13 @@ class CssLoader
      */
     public function renderTemplate($atts, $tmp, $tag)
     {
-        $GLOBALS['lf_start_time'] = microtime(true);
         return View::make(
             __DIR__ . DS . 'views' . DS . $tag . '.php',
             array(
                 'class' => Arr::get($atts, 'class'),
                 'bg'    => Arr::get($atts, 'bg', '#fff'),
                 'color' => Arr::get($atts, 'color', '#000'),
+                'style' => Arr::get($atts, 'style'),
             )
         );
     }
@@ -107,8 +93,8 @@ class CssLoader
             array(
                 'delay' => Arr::get($atts, 'delay', 0),
                 'spent_time' => sprintf(
-                    'Time spent %.4F seconds.',
-                    microtime(true) - Arr::get($GLOBALS, 'lf_start_time', 0)
+                    'Time spent %s seconds.',
+                    timer_stop()
                 ),
             )
         );

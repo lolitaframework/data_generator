@@ -2,6 +2,7 @@
 namespace datagenerator\LolitaFramework\Core;
 
 use \datagenerator\LolitaFramework;
+use \datagenerator\LolitaFramework\Core\Decorators\Img;
 
 class View
 {
@@ -49,7 +50,7 @@ class View
             $path = self::getDefaultFolder() . $path . '.php';
         }
         // Add parameters to temporary query variable.
-        $data['view'] = new self;
+        $data['__View'] = new self;
 
         extract($data);
         ob_start();

@@ -19,8 +19,23 @@ class Routes implements IModule
     {
         $this->data = $data;
         if (is_array($this->data)) {
-            $this->install();
+            $this->prepare()->install();
         }
+    }
+
+    /**
+     * Prepare data
+     *
+     * @return Routes instance
+     */
+    private function prepare()
+    {
+        $prepared = array();
+        foreach ($this->data as $key => $value) {
+            $prepared[ Data::interpret($key) ] = $value;
+        }
+        $this->data = $prepared;
+        return $this;
     }
 
     /**
@@ -134,6 +149,7 @@ class Routes implements IModule
         $wp_query = Loc::wpQuery();
         $page = $wp_query->query_vars['name'];
         if (array_key_exists($page, $this->data)) {
+            status_header(200);
             echo $this->render($this->data[ $page ]);
             exit;
         }

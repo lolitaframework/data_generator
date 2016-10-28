@@ -2,6 +2,8 @@
 namespace datagenerator\LolitaFramework\Controls;
 
 use \datagenerator\LolitaFramework\Core\Arr;
+use \datagenerator\LolitaFramework\Core\Ref;
+use \datagenerator\LolitaFramework\Core\Data;
 use \datagenerator\LolitaFramework\Core\Cls;
 use \datagenerator\LolitaFramework\Core\View;
 
@@ -17,53 +19,6 @@ class Controls
     public $collection = null;
 
     /**
-     * Create control
-     *
-     * @author Guriev Eugen <gurievcreative@gmail.com>
-     * @param  string $class_name control class name.
-     * @param  array $parameters parameters.
-     * @return mixed
-     */
-    public static function create($class_name, $parameters)
-    {
-        if (class_exists($class_name)) {
-            $reflection  = new \ReflectionClass($class_name);
-            return $reflection->newInstanceArgs(self::prepareClassParameters($class_name, $parameters));
-        }
-        return null;
-    }
-
-    /**
-     * Prepare class parameters
-     *
-     * @author Guriev Eugen <gurievcreative@gmail.com>
-     * @param  string $class_name class name.
-     * @param  array  $parameters class parameters.
-     * @return array  prepared parameters.
-     */
-    public static function prepareClassParameters($class_name, array $parameters = array())
-    {
-        $return = array();
-        if (!class_exists($class_name)) {
-            throw new \Exception("Class [$class_name] doesn't exists!");
-        }
-        $reflection     = new \ReflectionClass($class_name);
-        $constructor    = $reflection->getConstructor();
-        $default_params = $constructor->getParameters();
-        foreach ($default_params as $parameter) {
-            if (array_key_exists($parameter->getName(), $parameters)) {
-                array_push($return, $parameters[ $parameter->getName() ]);
-            } else if ($parameter->isDefaultValueAvailable()) {
-                array_push($return, $parameter->getDefaultValue());
-            } else {
-                throw new \Exception("Parameter [{$parameter->getName()}] is required!");
-            }
-        }
-
-        return $return;
-    }
-
-    /**
      * Generate controls from data
      *
      * @author Guriev Eugen <gurievcreative@gmail.com>
@@ -77,14 +32,14 @@ class Controls
             if (!is_string($arguments['name'])) {
                 throw new \Exception("`name` must be in string type.");
             }
-            $class_name = self::getClassNameFromType(Arr::get($arguments, '__TYPE__'));
-            $control = self::create(
-                $class_name,
+            $control = Ref::create(
+                self::getClassNameFromType(Arr::get($arguments, '__TYPE__')),
                 $arguments
             );
             if (Arr::exists($arguments, 'old_name')) {
                 $control->old_name = $arguments['old_name'];
             }
+
             if (null !== $control) {
                 $this->collection[ $arguments['name'] ] = $control;
             }

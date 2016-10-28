@@ -20,7 +20,7 @@ class Generator
         $args   = array_merge(
             array(
                 'post_type'    => 'post',
-                'post_title'   => 'Sample post {n}',
+                'post_title'   => 'Sample post {{ n }}',
                 'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, magnam.',
                 'post_status'  => 'publish',
                 'post_excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, magnam',
@@ -37,7 +37,7 @@ class Generator
 
         for ($i = 0; $i < $count; $i++) {
             $new_args = $args;
-            $new_args['post_title'] = str_replace('{n}', $i, $new_args['post_title']);
+            $new_args['post_title'] = str_replace('{{ n }}', $i, $new_args['post_title']);
             $post     = new Post($new_args, $image_args, $meta_data);
             $return[] = $post->insert($unique);
         }
