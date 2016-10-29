@@ -15,13 +15,29 @@ class CssLoader
      */
     public function __construct()
     {
-        require_once('templates.php');
         add_action('wp_enqueue_scripts', array(&$this, 'addScriptsAndStyles'));
         add_action('admin_enqueue_scripts', array(&$this, 'addScriptsAndStyles'));
         add_action('customize_controls_enqueue_scripts', array(&$this, 'addScriptsAndStyles'));
         // add_action('customize_controls_enqueue_scripts', array(&$this, 'addScriptsAndStyles'));
         // add_action('customize_controls_enqueue_scripts', array(&$this, 'renderTemplates'));
+        add_action('wp_footer', array(&$this, 'renderTemplates'));
+        add_action('admin_footer', array(&$this, 'renderTemplates'));
+        add_action('login_footer', array(&$this, 'renderTemplates'));
+        add_action('customize_controls_print_footer_scripts', array(&$this, 'renderTemplates'));
         $this->addShortcodes();
+    }
+
+    /**
+     * Render all templates
+     *
+     * @return void
+     */
+    public function renderTemplates()
+    {
+        if (!defined('LF_CSS_LOADER')) {
+            define('LF_CSS_LOADER', true);
+            echo View::make(__DIR__ . DS . 'views' . DS . 'lf_css_loader.php');
+        }
     }
 
     /**

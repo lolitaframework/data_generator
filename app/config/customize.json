@@ -110,7 +110,7 @@
                     {
                         "label" : "Title",
                         "__SETTINGS__" : {
-                            "default" : "Sample term {n}"
+                            "default" : "Sample term {{ n }}"
                         }
                     },
                     {
