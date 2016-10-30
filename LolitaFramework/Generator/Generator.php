@@ -83,7 +83,6 @@ class Generator
      */
     public static function terms($count, $title, $taxonomy, array $args = array(), array $meta_data = array())
     {
-        self::registerDummy();
         $return = array();
         $count  = max(1, (int) $count);
         for ($i = 0; $i < $count; $i++) {

@@ -109,6 +109,9 @@
                     },
                     {
                         "label" : "Title",
+                        "input_attrs" : {
+                            "list" : "lists"
+                        },
                         "__SETTINGS__" : {
                             "default" : "Sample term {{ n }}"
                         }

@@ -13,9 +13,6 @@ class ModelActions
      */
     public static function generatePosts()
     {
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
         check_ajax_referer('Lolita Framework', 'nonce');
         $request = $_POST;
         $count   = (int) Arr::get($request, 'count', 1);
@@ -70,6 +67,9 @@ class ModelActions
      */
     public static function generateTerms()
     {
+                ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         check_ajax_referer('Lolita Framework', 'nonce');
         $request  = $_POST;
         $count    = (int) Arr::get($request, 'count', 1);
