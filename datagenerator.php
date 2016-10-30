@@ -3,7 +3,7 @@
 Plugin Name: Data generator
 Plugin URI: https://github.com/lolitaframework/datagenerator
 Description: Data Generator is a WordPress plugin that allows a WordPress developer to create demo data. Provides multiple example posts, pages, custom terms to assist with styling and developing new and current themes. Based on Lolita Framework.
-Version: 1.0
+Version: 1.1
 Author: Guriev Eugen
 Author URI: https://lolitaframework.com/
 License: GPLv2 or later
