@@ -13,6 +13,9 @@ class ModelActions
      */
     public static function generatePosts()
     {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         check_ajax_referer('Lolita Framework', 'nonce');
         $request = $_POST;
         $count   = (int) Arr::get($request, 'count', 1);
@@ -106,17 +109,15 @@ class ModelActions
         wp_send_json_success($result);
     }
 
+    /**
+     * add data list to title input
+     */
     public static function addDataList()
     {
         ?>
-        <datalist id="smartdata">
-            <option value="Internet Explorer">
-            <option value="Firefox">
-            <option value="Chrome">
-            <option value="Opera">
-            <option value="Safari">
+        <datalist id="lists">
+            <option value="{{ skills }}">
         </datalist>
-
         <?php
     }
 }

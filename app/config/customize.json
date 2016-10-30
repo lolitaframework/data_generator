@@ -24,7 +24,7 @@
                     {
                         "label" : "Custom title",
                         "input_attrs" : {
-                            "list" : "smartdata"
+                            "list" : "lists"
                         },
                         "__SETTINGS__" : {
                             "default" : "Sample post {n}"

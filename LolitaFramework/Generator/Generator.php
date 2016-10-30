@@ -3,7 +3,6 @@ namespace datagenerator\LolitaFramework\Generator;
 
 use \datagenerator\LolitaFramework\Core\Str;
 use \datagenerator\LolitaFramework\Core\Arr;
-use \datagenerator\LolitaFramework\Core\Data;
 use \datagenerator\LolitaFramework\Generator\Modules\Post;
 use \datagenerator\LolitaFramework\Generator\Modules\Term;
 
@@ -39,6 +38,7 @@ class Generator
         for ($i = 0; $i < $count; $i++) {
             $new_args = $args;
             $new_args['post_title'] = str_replace('{{ n }}', $i, $new_args['post_title']);
+            $new_args['post_title'] = Data::interpret($new_args['post_title']);
             $post     = new Post($new_args, $image_args, $meta_data);
             $return[] = $post->insert($unique);
         }
@@ -88,9 +88,6 @@ class Generator
         $count  = max(1, (int) $count);
         for ($i = 0; $i < $count; $i++) {
             $insert_title     = str_replace('{{ n }}', $i, $title);
-            if ('{{ skills }}' == $insert_title) {
-                $insert_title = self::dummy();
-            }
             $insert_title     = Data::interpret($insert_title);
             $new_args         = $args;
             $new_args['slug'] = Str::slug($title, '_');
@@ -125,23 +122,5 @@ class Generator
             }
         }
         return $result;
-    }
-
-    /**
-     * Generate dummy data
-     *
-     * @param  string $list
-     * @return string
-     */
-    public static function dummy($list = 'skills')
-    {
-        $path = __DIR__ . DS . 'data' . DS . $list . '.json';
-        if (is_file($path)) {
-            $data = @file_get_contents($path);
-            $data = json_decode($data);
-            $rand = rand(0, counr($data));
-            return $data[ $rand ];
-        }
-        return '';
     }
 }

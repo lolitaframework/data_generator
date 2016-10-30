@@ -42,7 +42,6 @@ namespace LolitaFramework {
                 'generate_posts',
                 {
                     nonce: (<any>window).lolita_framework.LF_NONCE,
-                    unique: this.api.instance('data_generator_post_unique').get(),
                     count: this.api.instance('data_generator_post_count').get(),
                     post_type: this.api.instance('data_generator_post_post_type').get(),
                     post_title: this.api.instance('data_generator_post_custom_title').get(),

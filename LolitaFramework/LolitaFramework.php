@@ -34,6 +34,7 @@ class LolitaFramework
         spl_autoload_register(array( &$this, 'autoload' ));
         $this->constants();
         load_theme_textdomain('lolita', __DIR__ . DS . 'languages');
+        \datagenerator\LolitaFramework\Generator\Data::lists();
     }
 
     /**
